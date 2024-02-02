@@ -50,6 +50,15 @@ namespace SharpBucket
             authenticator = new BasicAuthentication(username, password, BaseUrl) { RequestExecutor = this.RequestExecutor };
         }
 
+        /// <summary>   
+        /// Use bearer token authentication with the Bitbucket API.
+        /// </summary>
+        /// <param name="token">The bearer token.</param>
+        public void BearerTokenAuthentication(string token)
+        {
+            authenticator = new BearerTokenAuthentication(token, BaseUrl) { RequestExecutor = this.RequestExecutor };
+        }
+
         /// <summary>
         /// Use 2 legged OAuth 1.0a authentication. This is similar to basic authentication, since
         /// it requires the same number of steps. It is still safer to use than basic authentication, 
