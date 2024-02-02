@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -87,6 +86,27 @@ namespace SharpBucket.V2.EndPoints
         public Task<Repository> PostRepositoryAsync(Repository repository, CancellationToken token = default)
         {
             return SharpBucketV2.PostAsync(repository, BaseUrl, token);
+        }
+
+        /// <summary>
+        /// Updates a repository.
+        /// </summary>
+        /// <param name="repository">The repository to update.</param>
+        /// <returns>The updated repository.</returns>
+        public Repository PutRepository(Repository repository)
+        {
+            return SharpBucketV2.Put(repository, BaseUrl);
+        }
+
+        /// <summary>
+        /// Updates a repository.
+        /// </summary>
+        /// <param name="repository">The repository to update.</param>
+        /// <param name="token">The cancellation token</param>
+        /// <returns>The updated repository.</returns>
+        public Task<Repository> PutRepositoryAsync(Repository repository, CancellationToken token = default)
+        {
+            return SharpBucketV2.PutAsync(repository, BaseUrl, token);
         }
 
         /// <summary>
